@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>メディア効果研究の再考</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/white.min.css" id="theme">
+    <style>
+        .reveal {
+            font-size: 32px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .reveal h1,
+        .reveal h2,
+        .reveal h3 {
+            text-transform: none;
+            font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+            color: #2c3e50;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .reveal h2 {
+            font-size: 1.5em;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .reveal p,
+        .reveal li {
+            font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+            text-align: left;
+            font-size: 0.85em;
+            line-height: 1.6;
+            color: #34495e;
+        }
+
+        .reveal .center {
+            text-align: center;
+        }
+
+        .img-container {
+            text-align: center;
+        }
+
+        .reveal img {
+            max-height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .reveal img:hover {
+            transform: scale(1.02);
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+            background: rgba(231, 76, 60, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        table.custom-table {
+            width: 100%;
+            font-size: 0.55em;
+            border-collapse: collapse;
+            background: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table.custom-table th,
+        table.custom-table td {
+            border: 1px solid #ecf0f1;
+            padding: 10px;
+        }
+
+        table.custom-table th {
+            background-color: #34495e;
+            color: #ffffff;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        table.custom-table tr:nth-child(even) {
+            background-color: #f9fbfd;
+        }
+
+        table.custom-table tr:hover {
+            background-color: #f1f4f8;
+        }
+
+        .note {
+            font-size: 0.65em;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- タイトルスライド -->
+            <section>
+                <p style="font-size: 0.45em; color: #555; text-align: left; margin-bottom: 20px;">
+                    日本メディア学会2026年度春季大会・理論部会ワークショップ報告資料</p>
+                <h2>メディア効果研究の再考</h2>
+                <div
+                    style="margin-top: 60px; font-size: 0.65em; text-align: right; border-top: 1px solid #ccc; padding-top: 20px;">
+                    <p style="margin: 5px 0;">報告者：慶應義塾大学文学部　李 光鎬</p>
+                    <p style="margin: 5px 0;">報告日：2026年6月28日</p>
+                    <p style="margin: 5px 0;">場所：武蔵大学</p>
+                </div>
+            </section>
+
+            <!-- 目次スライド -->
+            <section>
+                <h2>目次 (Table of Contents)</h2>
+                <div
+                    style="text-align: left; margin-top: 40px; font-size: 0.85em; display: flex; flex-direction: column; gap: 30px; margin-left: 10%;">
+                    <div>
+                        <h3
+                            style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px; display: inline-block; font-size: 1.1em;">
+                            第一部：メディア効果論の進化と蓄積</h3>
+                        <ul
+                            style="list-style-type: none; padding-left: 20px; margin-top: 15px; font-size: 0.9em; line-height: 1.6;">
+                            <li>1. ノイマンとグッゲンハイムの6段階累積モデル(1956-2005)</li>
+                            <li>2. 新たな分析（2006-2025）：第7・第8ステージの台頭</li>
+                            <li>3. 理論の引用トレンドとマタイ効果</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3
+                            style="color: #2c3e50; border-bottom: 2px solid #e67e22; padding-bottom: 5px; display: inline-block; font-size: 1.1em;">
+                            第二部：動的・多層的モデルへの転換</h3>
+                        <ul
+                            style="list-style-type: none; padding-left: 20px; margin-top: 15px; font-size: 0.9em; line-height: 1.6;">
+                            <li>1. 独立変数：メディア接触・利用の再定義</li>
+                            <li>2. 媒介変数：効果を生み出すメカニズム</li>
+                            <li>3. 従属変数：多角的な効果と「安定化」の視点</li>
+                            <li>4. 全体構造：強化スパイラル（トランザクショナル・モデル）</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 第一部 扉スライド -->
+            <section>
+                <h2 style="font-size: 1.5em; color: #2c3e50; margin-top: 150px;">第一部</h2>
+                <h3 style="font-size: 1.0em; color: #34495e;">メディア効果論の進化と蓄積</h3>
+            </section>
+
+            <!-- 先行研究（2005年まで）のまとめ -->
+            <section>
+                <section>
+                    <h2>1. ノイマンとグッゲンハイムの6ステージ累積モデル</h2>
+                    <p>Neuman & Guggenheim (2011). The Evolution of Media Effects Theory: A Six-Stage Model of
+                        Cumulative Research. Communication Theory 21(2), 169-196.</p>
+                </section>
+                <section>
+                    <h2>目的 (Purpose)</h2>
+                    <p>
+                        メディア効果の研究史は、しばしば<strong>「強力効果」→「限定効果」→「強力効果の復活」という3段階モデル</strong>で語られてきた。しかし、この劇的でロマンチックな単純化は、理論の累積的な発展を見えなくする弊害を持つ。
+                    </p>
+                    <p>
+                        彼らは、50年分の引用データを実証的に分析し、古い理論を単に否定するのではなく、<strong>新しい条件や文脈を付け加えながら累積的に発展してきたという「6段階モデル」</strong>を提示する。
+                    </p>
+                </section>
+                <section>
+                    <h2>方法 (Methods)</h2>
+                    <ul>
+                        <li><strong>対象データ:</strong>
+                            1956年から2005年の50年間に、メディア・コミュニケーション学の主要5ジャーナルに掲載された<strong>20,736本の論文</strong>（ISI Web of
+                            Knowledgeから抽出）。</li>
+                        <li><strong>サンプリング:</strong> 時代による偏りを防ぐため、5年ごとに最も引用された上位20本を抽出し、<strong>トップ200論文</strong>を特定。
+                        </li>
+                        <li><strong>分析手法:</strong>
+                            トップ200論文の内容を読み込み、分野を代表する「36の古典的文献」や「29のサブ理論」がどのように引用されているかをコーディングし、理論間の共引用ネットワークを分析した。</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>表1: 6段階の理論クラスター</h2>
+                    <p class="note">各段階は以前の理論を否定するのではなく、新たな「理論的洗練」を付け加えている。</p>
+                    <div
+                        style="max-height: 450px; overflow-y: auto; margin-top: 15px; border: 1px solid #ccc; border-radius: 5px;">
+                        <table class="custom-table" style="width: 100%; border-collapse: collapse; margin: 0;">
+                            <thead
+                                style="position: sticky; top: 0; background-color: #f2f2f2; z-index: 1; box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);">
+                                <tr>
+                                    <th>歴史的ステージ</th>
+                                    <th>理論的洗練（焦点の移動）</th>
+                                    <th>代表的な理論例</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>I. Persuasion Theories</strong><br>(説得理論 1944–1963)</td>
+                                    <td>単純な態度変容と行動モデリング</td>
+                                    <td>投票研究、説得・態度変容 (Hovland)、社会的学習 (Bandura)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>II. Active Audience Theories</strong><br>(能動的オーディエンス理論 1944–1986)</td>
+                                    <td>動機づけられた注意</td>
+                                    <td>利用と満足、パラソーシャル相互作用、認知的不協和、選択的接触、ELM (Petty & Cacioppo)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>III. Social Context Theories</strong><br>(社会的文脈理論 1955–1983)</td>
+                                    <td>コミュニケーションの対人的な文脈</td>
+                                    <td>2段階の流れ (Katz & Lazarsfeld)、イノベーション普及、知識ギャップ、沈黙の螺旋、第三者効果</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>IV. Societal & Media Theories</strong><br>(社会・メディア理論 1933–1978)</td>
+                                    <td>長期的な効果の蓄積</td>
+                                    <td>ヘゲモニー/公共圏 (Habermas)、メディアの特性 (McLuhan)、培養理論 (Gerbner)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>V. Interpretive Effects Theories</strong><br>(認知的効果理論 1972–1987)</td>
+                                    <td>態度変容を超えて：顕著性、アクセス容易性</td>
+                                    <td>議題設定 (McCombs & Shaw)、プライミング、フレーミング (Iyengar)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VI. New Media Theories</strong><br>(ニューメディア理論 1996–)</td>
+                                    <td>双方向コミュニケーション、ネットワーク化</td>
+                                    <td>コンピュータ媒介コミュニケーション (CMC) (Walther)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.8em; color: #7f8c8d; text-align: right; margin-top: 10px;">※
+                        表をスクロールして全てのステージを確認できます</p>
+                </section>
+                <section>
+                    <h2>図1. 引用の分布（マタイ効果）</h2>
+                    <div class="img-container">
+                        <img src="pdf_figure1.png" alt="図1: 引用数の分布">
+                    </div>
+                    <p class="note">
+                        <strong>意味:</strong> 20,736本中、約60%の論文は一度も引用されていない。一方で、上位1%のトップ200論文が全引用の38%を集めている。<br>
+                        科学の世界では「持てる者はますます豊かになる」という<strong>マタイ効果（The Matthew Effect）</strong>が極めて顕著に表れている。
+                    </p>
+                </section>
+                <section>
+                    <h2>図2. 理論の累積的成長</h2>
+                    <div class="img-container">
+                        <img src="pdf_figure2.png" alt="図2. 累積的成長">
+                    </div>
+                    <p class="note">
+                        <strong>意味:</strong> 3段階モデルのように「古い理論が衰退し新しい理論に取って代わられる」という現象は起きていない。<br>
+                        初期の「説得」などの理論でさえ安定した引用を保っており、新しい理論（認知的効果やニューメディア論など）がそれに<strong>上乗せされる形（累積的成長）</strong>でメディア効果論が発展していることを示している。
+                    </p>
+                </section>
+            </section>
+
+            <!-- 新たな分析（2006-2025）の概要 -->
+            <section>
+                <section>
+                    <h2>2. 新たな分析（2006-2025年）</h2>
+                    <p><strong>分析対象データ：</strong> 主要6ジャーナルにおける最近20年間の引用パターン</p>
+                    <p style="font-size: 0.6em; margin-top: 10px;">
+                        👉 <a href="top20_tables.html" target="_blank"
+                            style="color: #3498db; text-decoration: underline;">各年代の被引用数トップ20論文リストはこちら（別タブで開きます）</a>
+                    </p>
+
+                    <div style="display: flex; justify-content: space-between; gap: 20px; margin-top: 30px;">
+                        <!-- 左側：ジャーナルリスト -->
+                        <div
+                            style="flex: 1; background: #f8f9fa; padding: 15px; border-radius: 8px; border-top: 4px solid #3498db; text-align: left;">
+                            <h4 style="font-size: 0.8em; margin-bottom: 10px; color: #2c3e50;">対象ジャーナルと収録論文数</h4>
+                            <ul style="font-size: 0.55em; margin: 0; padding-left: 20px;">
+                                <li>Communication Research <strong>(890本)</strong></li>
+                                <li>Human Communication Research <strong>(525本)</strong></li>
+                                <li>Journal of Communication <strong>(921本)</strong></li>
+                                <li>Journalism & Mass Communication Quarterly <strong>(908本)</strong></li>
+                                <li>Public Opinion Quarterly <strong>(898本)</strong></li>
+                                <li>Journal of Computer-Mediated Communication <strong>(704本)</strong></li>
+                            </ul>
+                        </div>
+
+                        <!-- 右側：全体統計 -->
+                        <div
+                            style="flex: 1; background: #f8f9fa; padding: 15px; border-radius: 8px; border-top: 4px solid #e74c3c; text-align: center;">
+                            <h4 style="font-size: 0.8em; margin-bottom: 10px; color: #2c3e50;">データセットの規模</h4>
+                            <div style="font-size: 0.7em;">
+                                <p style="margin: 10px 0;"><strong>総収録論文数：</strong><br><span
+                                        style="font-size: 1.6em; color: #e74c3c; font-weight: bold;">4,846</span> <span
+                                        style="font-size: 0.9em;">本</span></p>
+                                <p style="margin: 10px 0;"><strong>抽出された引用文献総数：</strong><br><span
+                                        style="font-size: 1.6em; color: #e74c3c; font-weight: bold;">258,393</span>
+                                    <span style="font-size: 0.9em;">件</span><br><span
+                                        style="font-size: 0.75em; color: #7f8c8d;">（同一文献を名寄せ・集計した結果のユニーク文献数：134,623件）</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>新旧の比較１：既存6ステージの継続</h2>
+                    <p>
+                        2006年以降も、<strong>2005年までと同じように、各ステージの主要論文が引き続き引用され続けている。</strong>
+                    </p>
+                    <p>
+                        アジェンダセッティングや、フレーミングなどの理論の影響力は衰えていない。（図2で見られた累積の傾向は現在も継続）
+                    </p>
+                    <div
+                        style="font-size: 0.55em; text-align: left; background: #f4f4f4; padding: 15px; border-radius: 5px; margin-top: 20px;">
+                        <p style="margin: 0 0 10px 0; font-weight: bold;">代表的な継続引用文献：</p>
+                        <p style="margin: 0 0 8px 0; padding-left: 2em; text-indent: -2em;">McCombs, M. E., & Shaw, D.
+                            L. (1972). The agenda-setting function of mass media. <em>Public opinion quarterly,
+                                36</em>(2), 176-187.</p>
+                        <p style="margin: 0; padding-left: 2em; text-indent: -2em;">Entman, R. M. (1993). Framing:
+                            Toward clarification of a fractured paradigm. <em>Journal of communication, 43</em>(4),
+                            51-58.</p>
+                    </div>
+                </section>
+                <section>
+                    <h2>新旧の比較２：第7・第8ステージの追加</h2>
+                    <p style="font-size: 0.9em;">
+                        Top20の引用データを精査した結果、2006-2025年においては<br>
+                        <span class="highlight">「第7のステージ」</span>および<span
+                            class="highlight">「第8のステージ」</span>が明確に追加・分離されていることが分かった。
+                    </p>
+                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
+                        <div
+                            style="flex: 1; background: #f9f9f9; padding: 10px; border-left: 5px solid #F6B26B; text-align: left;">
+                            <h3 style="font-size: 0.7em; margin-bottom: 5px;">VII. Polarization & Selective Exposure
+                            </h3>
+                            <p style="font-size: 0.6em; margin: 0;">（分極化と選択的接触）</p>
+                        </div>
+                        <div
+                            style="flex: 1; background: #f9f9f9; padding: 10px; border-left: 5px solid #70A070; text-align: left;">
+                            <h3 style="font-size: 0.7em; margin-bottom: 5px;">VIII. Human-AI Interaction</h3>
+                            <p style="font-size: 0.6em; margin: 0;">（AIと人間の相互作用）</p>
+                        </div>
+                    </div>
+                    <div
+                        style="font-size: 0.45em; text-align: left; background: #f4f4f4; padding: 15px; border-radius: 5px; margin-top: 15px; max-height: 250px; overflow-y: auto;">
+                        <p style="margin: 0 0 10px 0; font-weight: bold; color: #F6B26B;">第7ステージの代表的な文献：</p>
+                        <p style="margin: 0 0 8px 0; padding-left: 2em; text-indent: -2em;">Iyengar, S., & Hahn, K. S.
+                            (2009). Red media, blue media: Evidence of ideological selectivity in media use. <em>Journal
+                                of communication, 59</em>(1), 19-39.</p>
+                        <p style="margin: 0 0 8px 0; padding-left: 2em; text-indent: -2em;">Flaxman, S., Goel, S., &
+                            Rao, J. M. (2016). Filter bubbles, echo chambers, and online news consumption. <em>Public
+                                opinion quarterly, 80</em>(S1), 298-320.</p>
+
+                        <p style="margin: 15px 0 10px 0; font-weight: bold; color: #70A070;">第8ステージの代表的な文献：</p>
+                        <p style="margin: 0 0 8px 0; padding-left: 2em; text-indent: -2em;">Ho, A., Hancock, J., &
+                            Miner, A. S. (2018). Psychological, relational, and emotional effects of self-disclosure
+                            after conversations with a chatbot. <em>Journal of Communication, 68</em>(4), 712-733.</p>
+                        <p style="margin: 0; padding-left: 2em; text-indent: -2em;">Sundar, S. S. (2020). Rise of
+                            machine agency: A framework for studying the psychology of human–AI interaction (HAII).
+                            <em>Journal of computer-mediated communication, 25</em>(1), 74-88.
+                        </p>
+                    </div>
+                </section>
+
+
+
+
+
+                <section>
+                    <h2>現在の各ステージの引用トレンド（SSCI全体 平均値）</h2>
+                    <div class="img-container">
+                        <canvas id="chartSSCI" width="800" height="400"></canvas>
+                    </div>
+                    <p class="note">
+                        <strong>データ：</strong> 2006-2025年のSSCI収録論文における、各ステージ代表論文の<strong>「1本あたりの平均被引用数」</strong>。<br>
+                        新しいステージ（VIII）が加わりつつ、既存ステージも累積的な層を形成していることがわかる。
+                    </p>
+                </section>
+                <section>
+                    <h2>現在の各ステージの引用トレンド（6ジャーナル 平均値）</h2>
+                    <div class="img-container">
+                        <canvas id="chart6JAvg" width="800" height="400"></canvas>
+                    </div>
+                    <p class="note">
+                        <strong>データ：</strong> 今回対象とした主要6ジャーナルにおける、各ステージ代表論文の<strong>「1本あたりの平均被引用数」</strong>。<br>
+                        ※SSCI全体と正確に比較するため、こちらもステージ内の論文数で割った平均値に統一した。
+                    </p>
+                </section>
+                <section>
+                    <h2>各ステージの相対的なシェア（6ジャーナル）</h2>
+                    <div class="img-container">
+                        <canvas id="chart6JShare" width="800" height="400"></canvas>
+                    </div>
+                    <p class="note">
+                        <strong>データ：</strong> 6ジャーナル内における全被引用数のうち、各ステージが占める<strong>「割合（％）」</strong>の推移。<br>
+                        絶対数ではなく割合で見ると、第2ステージ（能動的オーディエンス等）が安定した基盤を保つ中で、第7・第8ステージ（分極化やAI等）が着実にシェアを拡大している様子が浮き彫りになる。
+                    </p>
+                </section>
+
+            </section>
+
+            <!-- マタイ効果とTop30のテーマ -->
+            <section>
+                <section>
+                    <h2>3. 新たな分析におけるマタイ効果</h2>
+                    <p>
+                        2006-2025年においても、<strong>引用の「マタイ効果」は継続している。</strong><br>
+                        図1と同じく、ごく一部の論文に莫大な数の引用が集中している。
+                    </p>
+                    <div class="img-container">
+                        <img src="figure1_all_references_distribution.png" alt="Citation Distribution"
+                            style="max-height: 350px;">
+                    </div>
+                    <p class="note">
+                        <strong>グラフの元データ：</strong> コア6誌（2006〜2025年）の掲載論文 <strong>4,846本</strong>
+                        が参照した、<strong>全ユニーク文献（134,623件）</strong>の引用頻度分布。SSCI全体ではなく、「6誌の中で特定の過去文献がいかに偏って引用されているか」を示している。
+                    </p>
+                </section>
+                <section>
+                    <h2>マタイ効果はどの論文に集中しているか？</h2>
+                    <p>
+                        現在のTop30の論文を精査すると、Hu & Bentler (1999) や Hayes (2017)
+                        のような<strong>「統計手法・プロセス分析」の論文が最上位を占めている。</strong><br>
+                        しかし、これらを除外して「理論的テーマ」で整理すると、現代のメディア効果論が何に焦点を当てているかが浮かび上がる。
+                    </p>
+                    <p style="font-size: 0.6em; margin-top: 15px;">
+                        👉 <a href="top30_list.html" target="_blank"
+                            style="color: #3498db; text-decoration: underline;">最新の動向: 引用数 Top 30 (2006-2025)
+                            のリストはこちら（別タブで開きます）</a>
+                    </p>
+                </section>
+                <section>
+                    <h2>Top30のテーマ分類(方法論や統計関連論文は除外)</h2>
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>テーマ群</th>
+                                <th>代表的な論文（著者）</th>
+                                <th>特徴</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>分極化・選択的接触・党派性</strong><br>（第7ステージ関連）</td>
+                                <td>Iyengar & Hahn (2009), Taber & Lodge (2006), Zaller (1992), Stroud (2011), Mutz
+                                    (2006)</td>
+                                <td>現代の政治コミュニケーションにおける最も有力なトレンド。</td>
+                            </tr>
+                            <tr>
+                                <td><strong>古典的理論の維持・再評価</strong><br>（第1〜第5ステージ）</td>
+                                <td>Entman (1993), McCombs & Shaw (1972), Bennett & Iyengar (2008), Gans (1979)</td>
+                                <td>フレーミングや議題設定効果がデジタル時代にも基盤として引用される。</td>
+                            </tr>
+                            <tr>
+                                <td><strong>情報処理・心理的メカニズム</strong><br>（第2ステージ関連）</td>
+                                <td>Green et al. (2000), Lang (2000), Petty et al. (1983), Slater (2007)</td>
+                                <td>説得やメッセージ処理（ELM、ナラティブ説得、強化スパイラル）のメカニズム。</td>
+                            </tr>
+                            <tr>
+                                <td><strong>デジタル環境・ネットワーク</strong><br>（第6ステージ関連）</td>
+                                <td>Walther (1996), Granovetter (1973), Ellison et al. (2007)</td>
+                                <td>CMC、SNSにおける社会関係資本や弱い紐帯。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- 新規追加：Top30リスト -->
+            </section>
+
+            <!-- まとめ -->
+            <section>
+                <h2>全体まとめ</h2>
+                <ul>
+                    <li>2005年までの分析で示された「マタイ効果」と「理論の累積的成長」は、2006-2025年においても引き継がれている。</li>
+                    <li>「6ステージモデル」の古典的論文は廃れず、現在でも強固な引用基盤を形成している。</li>
+                    <li>一方で、過去20年間で<strong>「第7ステージ（分極化と党派的選択的接触）」</strong>が有力なステージとして確立し、さらに近年ではAIとの相互作用が<strong>「第8ステージ（Human-AI
+                            Interaction）」</strong>が新たなトレンドとして急浮上している。</li>
+                    <li>方法論に関する研究（統計論文への引用集中）を除外すると、現在の研究は「伝統的理論の新しいデジタルメディア環境への適用」「政治的分極化・心理メカニズムの解明」そして「人間とAIのコミュニケーション」を中心に理論クラスターが累積していると言える。
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 第二部 扉スライド -->
+            <section>
+                <h2 style="font-size: 1.8em; color: #2c3e50; margin-top: 150px;">第二部</h2>
+                <h3 style="font-size: 1.2em; color: #34495e;">動的・多層的モデルへの転換</h3>
+            </section>
+
+            <!-- 第二部の内容 -->
+            <section>
+                <section>
+                    <h2>メディア効果研究への提案</h2>
+                    <p>
+                        現代のメディア効果研究は、単に「メディアが人にどのような影響を与えるか」という一方向的な刺激⇒反応モデルを脱し、ユーザーの能動性、心理的プロセス、そして長期的な動態を統合した包括的な枠組みへと再考されている。（Valkenburg,
+                        Peter, & Walther, 2016; Vorderer, Park, & Lutz, 2020）。
+                    </p>
+                </section>
+
+                <section>
+                    <h2>1. 独立変数：メディア接触・利用の再定義</h2>
+                    <p>従来の「視聴時間」といった単純な接触度合いの指標から、技術的属性やユーザーの主観的認識を考慮する方向へ転換している。</p>
+                    <ul>
+                        <li><strong>属性混合（MOA）アプローチ:</strong>
+                            急速な技術変化の中で、メディアを「SNS」などのラベルで分類することには限界がある。「検索効率」「カスタマイズ性」「操作性」といった技術的属性（Attributes）の組み合わせとしてメディアを捉えることで、新旧のメディアを同じ次元で比較し、理論的な普遍性を志向することが提唱されている。（Dylko
+                            & McCluskey, 2012）。</li>
+                        <li><strong>客観的利用と主観的認識の区別:</strong>
+                            実際の利用時間（客観的利用）と、ユーザー自身が「使いすぎている」と感じる「メディア利用の認識」は概念的に異なる。特にメンタルヘルスにおいては、客観的な利用時間よりも「利用に対する罪悪感」などの主観的認識が強く作用する可能性が指摘されている。メディア利用に対する社会的構築主義のアプローチ（Wolfers,
+                            2024）。</li>
+                        <li><strong>選択的接触の強化:</strong>
+                            ユーザーは自身のアイデンティティや信念に基づいてコンテンツを能動的に選択しており、この「選択」自体が効果の発生を左右する重要な独立変数となる。（Valkenburg, Peter,
+                            & Walther, 2016; Valkenburg & Oliver, 2020）。</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>2. 媒介変数：効果を生み出すメカニズム</h2>
+                    <p>メディア接触がどのように従属変数へつながるか、その心理的・社会的プロセスの解明が求められている。</p>
+                    <ul>
+                        <li><strong>多次元的な「反応状態（Response States）」:</strong>
+                            メディア効果は、生理的・感情的・認知的な反応状態を介して間接的に生じる（Valkenburg, Peter, & Walther,
+                            2016）。例えば、メディアの「楽しさ（Enjoyment）」は単なる感情ではなく、感情・認知・行動意図の三要素からなる「態度」として機能し、その後の学習や行動を媒介する（Nabi
+                            & Krcmar, 2004）。</li>
+                        <li><strong>例えば、分極化においては、敵対的メディア認知（HMP）と推定された影響、社会的アイデンティティの強化:</strong>
+                            特に政治的対立において、ユーザーはメディアを「敵対的」だと認識する。この認識が「他者はメディアに騙されている」という<strong>推定された影響（Presumed
+                                Influence）</strong>を引き起こし、それがさらなる反論や分極化した行動を促すメカニズムとなる（Post, 2019）。</li>
+                        <li><strong>個人・社会特性による調整:</strong>
+                            メディア効果の感受性は、個人の発達段階や素因、あるいは所属する社会グループの規範によって調整（モデレート）されます（Valkenburg & Peter, 2013;
+                            Valkenburg, Peter, & Walther, 2016）。</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>3. 従属変数：多角的な効果と効果量の安定化の視点</h2>
+                    <p>効果は一過性の態度変容だけでなく、長期的な態度の維持や心理的な「繁栄」など、多角的に捉えられる。</p>
+                    <ul>
+                        <li><strong>ポジティブな成果と幸福感:</strong>
+                            従来の「攻撃性」などの負の影響だけでなく、<strong>「幸福感」「意味の探求」「向社会的な行動」</strong>といった、個人が良好な状態（繁栄）になるためのポジティブな効果も注目されている（de
+                            Leeuw & Buijzen, 2016; Raney & Bryant, 2020）。</li>
+                        <li><strong>効果量の安定化と慣れ:</strong>
+                            メディア効果は累積的に強まっていくのではなく、繰り返しの接触により、学習や適応、あるいは<strong>慣れ（ハビチュエーション）</strong>を通じて、ある時点で安定（高原状態に達する）すると思われる（Baumgartner,
+                            2025）。この「安定期」にあるユーザーを調査しても「変化」が検出されにくいため、メディア効果が過小評価されるという課題も指摘されている。</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>4. 全体構造：強化スパイラル（トランザクショナル・モデル）</h2>
+                    <p>「利用→メカニズム→効果」という一方向の流れは、「効果が次の利用を規定する」という循環的なプロセスへと再考されている。</p>
+                    <ul>
+                        <li><strong>相互影響のループ:</strong>
+                            メディアの選択（独立変数）が態度（従属変数）を形成し、その態度がさらに同種のメディア選択を強めるという強化スパイラルが生じ、アイデンティティの維持に寄与する（Slater,
+                            2007）。</li>
+                        <li><strong>自己効果（Self-Effects）:</strong>
+                            デジタル環境では、ユーザー自身が発信者となる。自分が発信したメッセージが、他者からのフィードバックや自己知覚を通じて、発信者自身の態度に影響を与えるという経路も注目されている（Valkenburg,
+                            Peter, & Walther, 2016; Valkenburg & Peter, 2013）。</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                <h2>第2部まとめ：動的・多層的モデル</h2>
+                <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-top: 40px; position: relative;">
+
+                    <!-- 独立変数 -->
+                    <div
+                        style="width: 30%; background: #ecf0f1; border-radius: 8px; padding: 15px; border-top: 5px solid #3498db; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <h3 style="font-size: 0.9em; margin-bottom: 10px; color: #2c3e50;">1. 独立変数<br><span
+                                style="font-size: 0.7em;">(メディア接触)</span></h3>
+                        <ul
+                            style="font-size: 0.6em; text-align: left; padding-left: 1.2em; color: #34495e; margin: 0; line-height: 1.4;">
+                            <li>技術的属性(MOA)からの把握と比較</li>
+                            <li>主観的認識の重要性</li>
+                            <li>選択的接触の強化</li>
+                        </ul>
+                    </div>
+
+                    <!-- 矢印 -->
+                    <div
+                        style="width: 5%; display: flex; align-items: center; justify-content: center; margin-top: 50px; font-size: 1.5em; color: #7f8c8d;">
+                        &#10145;
+                    </div>
+
+                    <!-- 媒介変数 -->
+                    <div
+                        style="width: 30%; background: #ecf0f1; border-radius: 8px; padding: 15px; border-top: 5px solid #e67e22; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <h3 style="font-size: 0.9em; margin-bottom: 10px; color: #2c3e50;">2. 媒介変数<br><span
+                                style="font-size: 0.7em;">(メカニズム)</span></h3>
+                        <ul
+                            style="font-size: 0.6em; text-align: left; padding-left: 1.2em; color: #34495e; margin: 0; line-height: 1.4;">
+                            <li>反応状態 (感情・認知)</li>
+                            <li>個人・社会特性の調整</li>
+                        </ul>
+                    </div>
+
+                    <!-- 矢印 -->
+                    <div
+                        style="width: 5%; display: flex; align-items: center; justify-content: center; margin-top: 50px; font-size: 1.5em; color: #7f8c8d;">
+                        &#10145;
+                    </div>
+
+                    <!-- 従属変数 -->
+                    <div
+                        style="width: 30%; background: #ecf0f1; border-radius: 8px; padding: 15px; border-top: 5px solid #2ecc71; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <h3 style="font-size: 0.9em; margin-bottom: 10px; color: #2c3e50;">3. 従属変数<br><span
+                                style="font-size: 0.7em;">(効果)</span></h3>
+                        <ul
+                            style="font-size: 0.6em; text-align: left; padding-left: 1.2em; color: #34495e; margin: 0; line-height: 1.4;">
+                            <li>幸福感・向社会的行動</li>
+                            <li>効果の安定化・慣れ</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- 下部のフィードバックループ -->
+                <div
+                    style="margin-top: 30px; padding: 15px; border: 2px dashed #95a5a6; border-radius: 8px; background: #fdfefe;">
+                    <h3 style="font-size: 0.9em; color: #2c3e50; margin-bottom: 10px;">4. 循環的プロセス（トランザクショナル・モデル）</h3>
+                    <p style="font-size: 0.6em; color: #7f8c8d; margin: 0; line-height: 1.5;">
+                        &#10226; <strong>強化スパイラル:</strong> 効果(従属変数)が次のメディア選択(独立変数)をさらに規定する<br>
+                        &#10226; <strong>自己効果 (Self-Effects):</strong> 発信者自身の態度がフィードバックを通じて強化される
+                    </p>
+                </div>
+            </section>
+
+            <!-- References -->
+            <section>
+                <h2>References</h2>
+                <div style="font-size: 0.5em; text-align: left; max-height: 500px; overflow-y: auto; padding: 0 20px;">
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Baumgartner, S. E. (2025). On
+                        the stabilization of media effects after repeated exposure: Consequences for media effects
+                        research. <em>Communication Theory, 2025</em>(00), 1–13.</p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Bryant, J., & Miron, D. (2004).
+                        Theory and research in mass communication. <em>Journal of communication, 54</em>(4), 662-704.
+                    </p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">de Leeuw, R. N. H., & Buijzen,
+                        M. (2016). Introducing positive media psychology to the field of children, adolescents, and
+                        media. <em>Journal of Children and Media, 10</em>(1), 39–46.</p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Dylko, I., & McCluskey, M.
+                        (2012). Media effects in an era of rapid technological transformation: A case of user-generated
+                        content and political participation. <em>Communication Theory, 22</em>(3), 250–278.</p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Entman, R. M. (1993). Framing:
+                        Toward clarification of a fractured paradigm. <em>Journal of communication, 43</em>(4), 51-58.
+                    </p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Flaxman, S., Goel, S., & Rao,
+                        J. M. (2016). Filter bubbles, echo chambers, and online news consumption. <em>Public opinion
+                            quarterly, 80</em>(S1), 298-320.</p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Hayes, A. F. (2017).
+                        <em>Introduction to mediation, moderation, and conditional process analysis: A regression-based
+                            approach</em>. Guilford publications.
+                    </p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Hu, L. T., & Bentler, P. M.
+                        (1999). Cutoff criteria for fit indexes in covariance structure analysis: Conventional criteria
+                        versus new alternatives. <em>Structural equation modeling: a multidisciplinary journal,
+                            6</em>(1), 1-55.</p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Iyengar, S., & Hahn, K. S.
+                        (2009). Red media, blue media: Evidence of ideological selectivity in media use. <em>Journal of
+                            communication, 59</em>(1), 19-39.</p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">McCombs, M. E., & Shaw, D. L.
+                        (1972). The agenda-setting function of mass media. <em>Public opinion quarterly, 36</em>(2),
+                        176-187.</p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Nabi, R. L., & Krcmar, M.
+                        (2004). Conceptualizing media enjoyment as attitude: Implications for mass media effects
+                        research. <em>Communication Theory, 14</em>(4), 288–310.</p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Neuman, W. R., & Guggenheim, L.
+                        (2011). The evolution of media effects theory: A six-stage model of cumulative research.
+                        <em>Communication theory, 21</em>(2), 169-196.
+                    </p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Post, S. (2019). Polarizing
+                        communication as media effects on antagonists: Understanding communication in conflicts in
+                        digital media societies. <em>Communication Theory, 29</em>(2), 213–235.</p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Raney, A. A., & Bryant, J.
+                        (2020). Entertainment and enjoyment as media effect. In M. B. Oliver, A. A. Raney, & J. Bryant
+                        (Eds.), <em>Media effects: Advances in theory and research</em> (4th ed., pp. 317–338).
+                        Routledge.</p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Slater, M. D. (2007).
+                        Reinforcing spirals: The mutual influence of media selectivity and media effects and their
+                        impact on individual behavior and social identity. <em>Communication Theory, 17</em>(3),
+                        281–303.</p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Stroud, N. J. (2010).
+                        Polarization and partisan selective exposure. <em>Journal of communication, 60</em>(3), 556-576.
+                    </p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Valkenburg, P. M., & Oliver, M.
+                        B. (2020). Media effects theories: An overview. In M. B. Oliver, A. A. Raney, & J. Bryant
+                        (Eds.), <em>Media effects: Advances in theory and research</em> (4th ed., pp. 11–35). Routledge.
+                    </p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Valkenburg, P. M., & Peter, J.
+                        (2013). Five challenges for the future of media-effects research. <em>International Journal of
+                            Communication, 7</em>, 197–215.</p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Valkenburg, P. M., Peter, J., &
+                        Walther, J. B. (2016). Media effects: Theory and research. <em>Annual Review of Psychology,
+                            67</em>, 315–338.</p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Vorderer, P., Park, D. W., &
+                        Lutz, S. (2020). A history of media effects research traditions. In M. B. Oliver, A. A. Raney, &
+                        J. Bryant (Eds.), <em>Media effects: Advances in theory and research</em> (4th ed., pp. 1–10).
+                        Routledge.</p>
+                    <p style="margin: 0 0 10px 0; padding-left: 2em; text-indent: -2em;">Wolfers, L. N. (2024). A social
+                        constructivist viewpoint of media effects: Extending the social influence model of technology
+                        use to media effects. <em>Communication Theory, 34</em>(4), 178–190.</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: true,
+            transition: 'slide'
+        });
+    </script>
+
+
+    <script>
+        const years = [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+
+        const configSSCI = {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{ "label": "I. Persuasion Theories", "data": [26.43, 29.57, 30.86, 36.29, 37.29, 43.86, 46.43, 45.14, 55.0, 54.86, 57.29, 63.71, 74.0, 75.71, 67.0, 63.0, 56.71, 59.57, 56.71, 63.43], "backgroundColor": "rgba(46, 91, 136, 0.85)", "borderColor": "#2E5B88", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "II. Active Audience Theories", "data": [21.75, 22.5, 27.92, 29.25, 33.33, 41.83, 44.17, 44.75, 49.83, 48.67, 48.42, 51.42, 55.08, 59.33, 49.58, 48.25, 35.42, 36.92, 35.58, 46.83], "backgroundColor": "rgba(61, 133, 198, 0.85)", "borderColor": "#3D85C6", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "III. Social Context Theories", "data": [63.57, 69.43, 79.0, 94.57, 101.29, 104.0, 112.57, 115.29, 117.0, 131.71, 117.14, 129.43, 142.0, 163.29, 165.43, 193.86, 145.43, 125.14, 119.57, 138.43], "backgroundColor": "rgba(111, 168, 220, 0.85)", "borderColor": "#6FA8DC", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "IV. Societal & Media Theories", "data": [43.33, 48.33, 63.67, 68.83, 70.17, 69.33, 78.83, 82.5, 76.5, 75.33, 80.83, 83.67, 80.67, 95.0, 103.67, 94.0, 87.0, 82.33, 84.33, 60.0], "backgroundColor": "rgba(142, 124, 195, 0.85)", "borderColor": "#8E7CC3", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "V. Interpretive Effects Theories", "data": [24.0, 29.75, 32.5, 39.75, 41.75, 53.5, 56.25, 47.5, 59.25, 52.75, 66.5, 60.5, 71.5, 83.75, 83.75, 83.5, 67.0, 52.25, 63.5, 71.75], "backgroundColor": "rgba(194, 123, 160, 0.85)", "borderColor": "#C27BA0", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "VI. New Media Theories", "data": [4.86, 6.86, 10.86, 11.29, 22.43, 35.86, 43.57, 63.57, 71.43, 83.14, 86.29, 85.71, 97.71, 101.14, 102.57, 94.71, 73.86, 84.86, 93.29, 85.71], "backgroundColor": "rgba(224, 102, 102, 0.85)", "borderColor": "#E06666", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "VII. Polarization & Selective Exposure", "data": [0.0, 0.0, 0.0, 0.8, 1.2, 5.0, 8.4, 11.6, 17.0, 19.8, 26.2, 41.4, 51.4, 72.0, 92.4, 99.2, 83.6, 77.6, 80.0, 97.2], "backgroundColor": "rgba(246, 178, 107, 0.85)", "borderColor": "#F6B26B", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "VIII. Human-AI Interaction", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 3.8, 10.6, 16.2, 24.8, 37.2, 57.8], "backgroundColor": "rgba(153, 204, 153, 0.85)", "borderColor": "#70A070", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: true,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { position: 'left', labels: { font: { size: 10 } } }
+                },
+                scales: {
+                    x: { title: { display: true, text: 'Year' } },
+                    y: { stacked: true, title: { display: true, text: 'Average Citations per Article' } }
+                }
+            }
+        };
+
+        const config6JAvg = {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{ "label": "I. Persuasion Theories", "data": [1.71, 1.86, 2.43, 2.0, 1.43, 2.43, 1.86, 1.86, 2.29, 2.14, 1.86, 1.86, 1.57, 2.14, 2.14, 2.29, 1.71, 2.86, 2.0, 2.0], "backgroundColor": "rgba(46, 91, 136, 0.85)", "borderColor": "#2E5B88", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "II. Active Audience Theories", "data": [2.33, 1.67, 2.25, 1.83, 1.92, 2.25, 1.75, 2.5, 3.25, 1.92, 1.75, 0.92, 1.58, 1.67, 2.5, 2.08, 1.83, 1.67, 2.0, 1.92], "backgroundColor": "rgba(61, 133, 198, 0.85)", "borderColor": "#3D85C6", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "III. Social Context Theories", "data": [1.29, 2.43, 3.71, 2.0, 2.0, 4.29, 2.14, 1.43, 1.71, 2.43, 1.86, 2.57, 1.71, 3.43, 2.0, 3.14, 3.86, 1.29, 1.14, 1.57], "backgroundColor": "rgba(111, 168, 220, 0.85)", "borderColor": "#6FA8DC", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "IV. Societal & Media Theories", "data": [0.67, 0.83, 1.33, 0.83, 0.17, 1.0, 0.33, 0.5, 1.33, 1.0, 0.67, 1.33, 1.17, 0.5, 1.0, 0.33, 0.5, 1.17, 0.67, 0.83], "backgroundColor": "rgba(142, 124, 195, 0.85)", "borderColor": "#8E7CC3", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "V. Interpretive Effects Theories", "data": [4.0, 5.5, 3.0, 5.25, 4.25, 5.25, 4.0, 4.5, 4.75, 3.25, 3.75, 2.25, 3.0, 3.25, 3.25, 3.75, 3.5, 3.75, 4.25, 4.0], "backgroundColor": "rgba(194, 123, 160, 0.85)", "borderColor": "#C27BA0", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "VI. New Media Theories", "data": [0.29, 0.71, 0.71, 0.71, 1.0, 2.43, 1.86, 2.57, 2.0, 1.14, 1.86, 1.71, 2.86, 1.57, 2.43, 2.14, 2.14, 1.57, 1.43, 2.43], "backgroundColor": "rgba(224, 102, 102, 0.85)", "borderColor": "#E06666", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "VII. Polarization & Selective Exposure", "data": [0.0, 0.0, 0.0, 0.2, 0.2, 1.4, 2.0, 1.0, 5.2, 2.0, 4.8, 3.0, 5.2, 5.6, 7.2, 3.8, 5.6, 8.0, 7.0, 6.4], "backgroundColor": "rgba(246, 178, 107, 0.85)", "borderColor": "#F6B26B", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "VIII. Human-AI Interaction", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.8, 2.6, 3.4, 2.0], "backgroundColor": "rgba(153, 204, 153, 0.85)", "borderColor": "#70A070", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: true,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { position: 'left', labels: { font: { size: 10 } } }
+                },
+                scales: {
+                    x: { title: { display: true, text: 'Year' } },
+                    y: { stacked: true, title: { display: true, text: 'Average Citations per Article' } }
+                }
+            }
+        };
+
+        const config6JShare = {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{ "label": "I. Persuasion Theories", "data": [16.9, 15.85, 17.89, 17.07, 13.7, 13.6, 14.44, 13.4, 11.94, 16.3, 12.62, 15.12, 10.28, 13.16, 11.45, 14.04, 8.89, 14.81, 10.85, 10.94], "backgroundColor": "rgba(46, 91, 136, 0.85)", "borderColor": "#2E5B88", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "II. Active Audience Theories", "data": [39.44, 24.39, 28.42, 26.83, 31.51, 21.6, 23.33, 30.93, 29.1, 25.0, 20.39, 12.79, 17.76, 17.54, 22.9, 21.93, 16.3, 14.81, 18.6, 17.97], "backgroundColor": "rgba(61, 133, 198, 0.85)", "borderColor": "#3D85C6", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "III. Social Context Theories", "data": [12.68, 20.73, 27.37, 17.07, 19.18, 24.0, 16.67, 10.31, 8.96, 18.48, 12.62, 20.93, 11.21, 21.05, 10.69, 19.3, 20.0, 6.67, 6.2, 8.59], "backgroundColor": "rgba(111, 168, 220, 0.85)", "borderColor": "#6FA8DC", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "IV. Societal & Media Theories", "data": [5.63, 6.1, 8.42, 6.1, 1.37, 4.8, 2.22, 3.09, 5.97, 6.52, 3.88, 9.3, 6.54, 2.63, 4.58, 1.75, 2.22, 5.19, 3.1, 3.91], "backgroundColor": "rgba(142, 124, 195, 0.85)", "borderColor": "#8E7CC3", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "V. Interpretive Effects Theories", "data": [22.54, 26.83, 12.63, 25.61, 23.29, 16.8, 17.78, 18.56, 14.18, 14.13, 14.56, 10.47, 11.21, 11.4, 9.92, 13.16, 10.37, 11.11, 13.18, 12.5], "backgroundColor": "rgba(194, 123, 160, 0.85)", "borderColor": "#C27BA0", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "VI. New Media Theories", "data": [2.82, 6.1, 5.26, 6.1, 9.59, 13.6, 14.44, 18.56, 10.45, 8.7, 12.62, 13.95, 18.69, 9.65, 12.98, 13.16, 11.11, 8.15, 7.75, 13.28], "backgroundColor": "rgba(224, 102, 102, 0.85)", "borderColor": "#E06666", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "VII. Polarization & Selective Exposure", "data": [0.0, 0.0, 0.0, 1.22, 1.37, 5.6, 11.11, 5.15, 19.4, 10.87, 23.3, 17.44, 24.3, 24.56, 27.48, 16.67, 20.74, 29.63, 27.13, 25.0], "backgroundColor": "rgba(246, 178, 107, 0.85)", "borderColor": "#F6B26B", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }, { "label": "VIII. Human-AI Interaction", "data": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 10.37, 9.63, 13.18, 7.81], "backgroundColor": "rgba(153, 204, 153, 0.85)", "borderColor": "#70A070", "borderWidth": 1, "fill": true, "pointRadius": 0, "pointHoverRadius": 4 }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: true,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { position: 'left', labels: { font: { size: 10 } } }
+                },
+                scales: {
+                    x: { title: { display: true, text: 'Year' } },
+                    y: { stacked: true, title: { display: true, text: 'Share of Citations (%)' }, min: 0, max: 100 }
+                }
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const ctxSSCI = document.getElementById('chartSSCI');
+            if (ctxSSCI) new Chart(ctxSSCI.getContext('2d'), configSSCI);
+
+            const ctx6JAvg = document.getElementById('chart6JAvg');
+            if (ctx6JAvg) new Chart(ctx6JAvg.getContext('2d'), config6JAvg);
+
+            const ctx6JShare = document.getElementById('chart6JShare');
+            if (ctx6JShare) new Chart(ctx6JShare.getContext('2d'), config6JShare);
+        });
+    </script>
+
+</body>
+
+</html>
